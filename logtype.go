@@ -33,7 +33,7 @@ func (u *LogTypeClient) read(requestType string, logTypeListRequest LogTypeListR
 	form.Add("request", requestType)
 	form.Add("user_key", u.AccountKey)
 	form.Add("id", "terraform")
-	resp, err := http.PostForm("https://api.logentries.com/", form)
+	resp, err := http.PostForm("https://eu.data.logs.insight.rapid7.com/", form)
 
 	if err != nil {
 		return nil, err

@@ -38,7 +38,7 @@ func (l *LogClient) Create(createRequest LogCreateRequest) (*Log, error) {
 	form.Add("filename", createRequest.Filename)
 	form.Add("retention", createRequest.Retention)
 	form.Add("source", createRequest.Source)
-	resp, err := http.PostForm("https://api.logentries.com/", form)
+	resp, err := http.PostForm("https://eu.data.logs.insight.rapid7.com/", form)
 
 	if err != nil {
 		return nil, err
@@ -72,7 +72,7 @@ func (l *LogClient) Read(readRequest LogReadRequest) (*Log, error) {
 	form := url.Values{}
 	form.Add("request", "get_log")
 	form.Add("log_key", readRequest.Key)
-	resp, err := http.PostForm("https://api.logentries.com/", form)
+	resp, err := http.PostForm("https://eu.data.logs.insight.rapid7.com/", form)
 
 	if err != nil {
 		return nil, err
@@ -118,7 +118,7 @@ func (l *LogClient) Update(updateRequest LogUpdateRequest) (*Log, error) {
 	form.Add("source", updateRequest.Source)
 	form.Add("filename", updateRequest.Filename)
 	form.Add("retention", updateRequest.Retention)
-	resp, err := http.PostForm("https://api.logentries.com/", form)
+	resp, err := http.PostForm("https://eu.data.logs.insight.rapid7.com/", form)
 
 	if err != nil {
 		return nil, err
@@ -157,7 +157,7 @@ func (l *LogClient) Delete(deleteRequest LogDeleteRequest) error {
 	form.Add("user_key", l.AccountKey)
 	form.Add("host_key", deleteRequest.LogSetKey)
 	form.Add("log_key", deleteRequest.Key)
-	resp, err := http.PostForm("https://api.logentries.com/", form)
+	resp, err := http.PostForm("https://eu.data.logs.insight.rapid7.com/", form)
 
 	if err != nil {
 		return err
