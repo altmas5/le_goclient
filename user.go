@@ -28,7 +28,7 @@ func (u *UserClient) Read(readRequest UserReadRequest) (*UserReadResponse, error
 	form.Add("load_alerts", "0")
 	form.Add("user_key", u.UserKey)
 	form.Add("id", "terraform")
-	resp, err := http.PostForm("https://eu.data.logs.insight.rapid7.com/", form)
+	resp, err := http.PostForm("https://eu.rest.logs.insight.rapid7.com/", form)
 
 	if err != nil {
 		return nil, err

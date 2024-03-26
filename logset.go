@@ -36,7 +36,7 @@ func (l *LogSetClient) Create(createRequest LogSetCreateRequest) (*LogSet, error
 	form.Add("distver", createRequest.DistVer)
 	form.Add("system", createRequest.System)
 	form.Add("distname", createRequest.DistName)
-	resp, err := http.PostForm("https://eu.data.logs.insight.rapid7.com/", form)
+	resp, err := http.PostForm("https://eu.rest.logs.insight.rapid7.com/", form)
 
 	if err != nil {
 		return nil, err
@@ -104,7 +104,7 @@ func (l *LogSetClient) Update(updateRequest LogSetUpdateRequest) (*LogSet, error
 	form.Add("host_key", updateRequest.Key)
 	form.Add("name", updateRequest.Name)
 	form.Add("hostname", string(updateRequest.Location))
-	resp, err := http.PostForm("https://eu.data.logs.insight.rapid7.com/", form)
+	resp, err := http.PostForm("https://eu.rest.logs.insight.rapid7.com/", form)
 
 	if err != nil {
 		return nil, err
@@ -140,7 +140,7 @@ func (l *LogSetClient) Delete(deleteRequest LogSetDeleteRequest) error {
 	form.Add("request", "rm_host")
 	form.Add("user_key", l.AccountKey)
 	form.Add("host_key", deleteRequest.Key)
-	resp, err := http.PostForm("https://eu.data.logs.insight.rapid7.com/", form)
+	resp, err := http.PostForm("https://eu.rest.logs.insight.rapid7.com/", form)
 
 	if err != nil {
 		return err
